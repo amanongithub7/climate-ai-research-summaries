@@ -7,9 +7,9 @@ agricultural parcel segmentation, and energy grid optimization.
 
 ## 🔬 Table of Contents
 
-| Index | Title                                                                                                                                                                                                | Authors      | Lab / Group                                                | Topics   |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------- | -------- |
-| 1     | [A Comprehensive Review of Agricultural Parcel and Boundary Delineation from Remote Sensing Images: Recent Progress and Future Perspectives](https://ieeexplore.ieee.org/abstract/document/11396383) | Zheng et al. | High Performance Geocomputing Group - SYSU & Tsinghua SIGS | RS, APBD |
+| Index | Title                                                                                                                                                                                                | Authors      | Primary Lab / Group                                                                    | Topics   |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------- | -------- |
+| 1     | [A Comprehensive Review of Agricultural Parcel and Boundary Delineation from Remote Sensing Images: Recent Progress and Future Perspectives](https://ieeexplore.ieee.org/abstract/document/11396383) | Zheng et al. | [High Performance Geocomputing Group - SYSU & Tsinghua SIGS](https://www.thuhpgc.net/) | RS, APBD |
 
 ### 🗺️ Abbreviations
 
