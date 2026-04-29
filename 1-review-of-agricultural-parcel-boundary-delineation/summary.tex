@@ -1,9 +1,6 @@
 \documentclass{report}
 
-% TODO: clean unused packages
-% import templates created by SeniorMars
-% \input{letterfonts}
-% \input{macros}
+% import template created by SeniorMars
 \input{preamble}
 
 \title{A Comprehensive Review of Agricultural Parcel and Boundary Delineation from Remote Sensing Images: Recent Progress and Future Perspectives}
@@ -18,6 +15,8 @@
 \usepackage{graphicx}                                   % to import images
 \graphicspath{{./images/}}                              % images dir
 \usepackage{parskip}                                    % start paras on new lines instead of with indents
+
+ \renewcommand{\thesubsection}{\Roman{subsection}}
 
 \begin{document}
 
@@ -75,18 +74,58 @@ as a critical driver of APBD research in the foreseeable future.
 
 \section{Meta-analysis of Related Literature}
 
-\subsection{Overall Trend}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{fig-2}
-    \caption*{Trends in APBD Methodologies (Figure 2)}
+    \caption*{Trends in APBD methodologies (Figure 2)}
 \end{figure}
 
+\subsection{Overall Trend}
 \begin{itemize}
   \item \emph{\textquote{Since 2019, the number of APBD studies using Very High-Resolution (VHR) imagery has increased exponentially.}}
   \item Although VHR imagery enables high accuracy APBD, storage and processing costs prove to be a disadvantage. Large scale studies
     tend to use \textgreater 10 m spatial resolution to balance land variety and coverage, accuracy, and storage.
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{fig-3}
+    \caption*{Overall trends of APBD development (Figure 3)}
+\end{figure}
+
+\subsection{Quantitative Analysis}
+
+\begin{itemize}
+    \item \emph{Types of crops:} Corn crop most widely studied for APBD with statistics presented in figure 4 of the paper, attached below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig-4}
+    \caption*{Statistics of crop types in APBD-related publications (Figure 4)}
+\end{figure}
+
+    \item \emph{Study sites:} China (130 studies) leads in volume of publications followed by USA (19), Netherlands (14), and India (11).
+
+    \item \emph{Study area:} Rising trend in extremely large region studies (\textgreater 10,000 km) catalysed by deep learning techniques.            
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig-6}
+    \caption*{Study area statistics for APBD publications (Figure 6)}
+\end{figure}
+
+    \item \emph{Sensor type:} A strong reliance on satellite data (84.0\%), followed by Unmanned Aerial Vehicles (10.8\%) and aerial imagery (5.2\%).
+      Sentinel (82) and Landsat (31) lead the list in medium resolution satellite imagery, while GF series (62) is the overwhelming majority in
+      high-resolution ($\leq 1$m) studies.
+
+    \item \emph{Spatial resolution of data:} An increasing reliance on high-resolution imagery, attributed to the advent of modern deep learning algorithms
+      that can extract detailed texture and spatial information.
+\end{itemize}
+
+\subsection{Methodology Review}
+
+\subsubsection{Traditional image processing-based methods}
+
 
 \chapter*{Acknowledgment}
 \addcontentsline{toc}{chapter}{Acknowledgment}
