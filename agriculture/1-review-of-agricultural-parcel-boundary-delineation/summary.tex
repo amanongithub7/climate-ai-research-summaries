@@ -16,7 +16,10 @@
 \graphicspath{{./images/}}                              % images dir
 \usepackage{parskip}                                    % start paras on new lines instead of with indents
 
- \renewcommand{\thesubsection}{\Roman{subsection}}
+% match section ordering style with paper wherever possible
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\setcounter{secnumdepth}{3} % ensure subsubsections are numbered (default is usually 3)
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}} % use alphabets for ordering subsubsections
 
 \begin{document}
 
@@ -112,20 +115,73 @@ as a critical driver of APBD research in the foreseeable future.
     \centering
     \includegraphics[width=0.7\textwidth]{fig-6}
     \caption*{Study area statistics for APBD publications (Figure 6)}
-\end{figure}
+  \end{figure}
 
-    \item \emph{Sensor type:} A strong reliance on satellite data (84.0\%), followed by Unmanned Aerial Vehicles (10.8\%) and aerial imagery (5.2\%).
-      Sentinel (82) and Landsat (31) lead the list in medium resolution satellite imagery, while GF series (62) is the overwhelming majority in
-      high-resolution ($\leq 1$m) studies.
+\item \emph{Sensor type:} A strong reliance on satellite data (84.0\%), followed by Unmanned Aerial Vehicles (10.8\%) and aerial imagery (5.2\%).
+  Sentinel (82) and Landsat (31) lead the list in medium resolution satellite imagery, while GF series (62) is the overwhelming majority in
+  high-resolution ($\leq 1$m) studies.
 
-    \item \emph{Spatial resolution of data:} An increasing reliance on high-resolution imagery, attributed to the advent of modern deep learning algorithms
-      that can extract detailed texture and spatial information.
+\item \emph{Spatial resolution of data:} An increasing reliance on high-resolution imagery, attributed to the advent of modern deep learning algorithms
+  that can extract detailed texture and spatial information.
 \end{itemize}
 
 \subsection{Methodology Review}
-
+\emph{Note: for most of the algorithms and methods mentioned below, the paper provides several
+good examples -- these are not covered in the summary}
 \subsubsection{Traditional image processing-based methods}
 
+Traditional methods can be classified into:
+
+\begin{enumerate}
+  \item \emph{Pixel-based methods}: Each spatially continuous unit needs to be assigned a unique label.
+  \begin{itemize}
+    \item \textbf{Image binaryzation} classifies pixels belonging to a parcel using thresholds. Thresholds are determined globally
+      or locally - based on neighboring pixels (the latter being more robust to high-value noise and low-value boundaries)
+    \item \textbf{Clustering segmentation} groups similar pixels using clustering algorithms such as k-means, fuzzy c-means, etc.
+  \end{itemize}
+
+  \item \emph{Edge-based methods}: Accurately detecting edges and boundaries between different parcels is a key challenge in APBD.
+    Edge-based techniques are:
+    \begin{itemize}
+      \item \textbf{Traditional edge detection ("gradient") operators, such as Canny and Sobel operators,} locate
+        edge of the local area by using a differential operator
+        to identify locations where the gray value abruptly changes in the image
+      \item \textbf{Wavelet transform} is useful for multi-resolution analysis and approximates well
+        for 1-dimensional signals
+      \item \textbf{Globalized Probability of Boundary (gPb)} is an advanced edge detection algorithm 
+        that combines image segmentation, line detection, and contour generation integrating
+        texture, color and brightness information at local and global scales
+      \item \textbf{Multiscale combinatorial grouping}
+      \item \textbf{Mean shift} is a nonparametric density estimation algorithm that eliminates
+       the need to assume a sample distribution model and determine the number of categories,
+       which can effectively reduce intra-field variation and preserve edge information
+    \end{itemize}
+
+  \item \emph{Region-based methods}: start from the inside of an object and then expand outward 
+    until object boundaries are reached. 
+    (assumes that neighboring pixels within the same region/parcel have similar values)
+    \begin{itemize}
+      \item \textbf{OBIA or GEOBIA} partitions remote-sensing imagery into meaningful image-objects
+        which analyzes high spatial resolution imagery using spectral, spatial, topological, etc
+        properties
+      \item \textbf{Watershed segmenation} is a mathematical, morphological segmentation algorithm
+        that is based on topolgy theory and simulation of the process of water immersion, but is,
+        however, prone to over-segmentation.
+      \item \textbf{Region growing} -- a simple and popular algorithm
+      \item \textbf{Local binary fitting}
+
+    \end{itemize}
+
+\end{enumerate}
+
+\subsubsection{Traditional machine learning-based APBD methods}
+The authors divide ML-based APBD into 4 steps:
+\begin{enumerate}
+  \item image preprocessing
+  \item feature extraction
+  \item classifier training
+  \item model prediction
+\end{enumerate}
 
 \chapter*{Acknowledgment}
 \addcontentsline{toc}{chapter}{Acknowledgment}
