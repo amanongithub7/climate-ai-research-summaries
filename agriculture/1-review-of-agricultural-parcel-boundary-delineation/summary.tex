@@ -7,7 +7,7 @@
 \author{Juepeng Zheng et al.}
 \date{}
 
-\usepackage[backend=biber, style=authoryear]{biblatex}  % citations
+\usepackage[backend=biber, style=authoryear, style=numeric, sorting=none]{biblatex}  % citations
 \addbibresource{references.bib}                         % references file
 \usepackage[font=small, textfont=bf]{caption}           % dont enumerate image captions
 \usepackage{csquotes}                                   % for styled quotes
@@ -115,7 +115,7 @@ as a critical driver of APBD research in the foreseeable future.
     \centering
     \includegraphics[width=0.7\textwidth]{fig-6}
     \caption*{Study area statistics for APBD publications (Figure 6)}
-  \end{figure}
+\end{figure}
 
 \item \emph{Sensor type:} A strong reliance on satellite data (84.0\%), followed by Unmanned Aerial Vehicles (10.8\%) and aerial imagery (5.2\%).
   Sentinel (82) and Landsat (31) lead the list in medium resolution satellite imagery, while GF series (62) is the overwhelming majority in
@@ -174,7 +174,14 @@ Traditional methods can be classified into:
 
 \end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig-9}
+    \caption*{Visual examples of APBD using different traditional methods (Figure 9)}
+  \end{figure}
+
 \subsubsection{Traditional machine learning-based APBD methods}
+ML-based techniques are often more adpatable and generalizable than traditional deterministic methods.
 The authors divide ML-based APBD into 4 steps:
 \begin{enumerate}
   \item image preprocessing
@@ -182,6 +189,25 @@ The authors divide ML-based APBD into 4 steps:
   \item classifier training
   \item model prediction
 \end{enumerate}
+
+Out of these steps, there have been different types of feature extraction and classifiers used in the task
+of APBD.
+
+\begin{enumerate}
+  \item \emph{Feature extraction} includes non-handcrafted features implicit to the image such as spectral
+    information, vegetation index, texture, climate characteristics, etc, as well as handcrafted features
+    crafted using domain knowledge and prior context using techniques like gradient direction histogram,
+    gray level co-occurence matrix, principal component analysis that capture specific visual attributes of
+    parcels such as edges and shapes (helping with interpretability)
+  \item \emph{Classifier training} spanning models such as Decision Trees, Gaussian maximum likelihood, SVMs,
+    KNNs, logistic regression, ensemble methods, etc
+\end{enumerate}
+
+A unique approach that can enhance ML-based APBD techniques when operating on limited labels
+is \emph{active learning}, where classifiers 
+recognize the most informative training data based on prediction uncertainty. Estes \emph{et al.} \cite{estes2022} utilize active
+learning with Random Forests.
+
 
 \chapter*{Acknowledgment}
 \addcontentsline{toc}{chapter}{Acknowledgment}
