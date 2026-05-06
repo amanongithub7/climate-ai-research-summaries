@@ -205,9 +205,37 @@ of APBD.
 
 A unique approach that can enhance ML-based APBD techniques when operating on limited labels
 is \emph{active learning}, where classifiers 
-recognize the most informative training data based on prediction uncertainty. Estes \emph{et al.} \cite{estes2022} utilize active
+recognize the most informative training data based on prediction uncertainty. Estes \emph{et al.} \cite{estes2022} 
+utilize active
 learning with Random Forests.
 
+\subsubsection{Deep learning-based APBD methods}
+
+\begin{enumerate}
+  \item \emph{Semantic segmentation-based APBD methods} aim at generating dense classes for each pixel in the
+    image. State-of-the-art segmentation architectures such as UNet, Fully Connected Neural Networks,
+    High-Resolution Network (HRNet) and Pyramid Scene Parsing Network (PSPNet) comprise some of the
+    segementation-based DL APBD methods. Examples:
+    \begin{itemize}
+      \item Li \emph{et al.} \cite{li2023} present a Semantic Edge-Aware multi-task Neural Network (SEANet) to obtain 
+        agricultural boundaries. This integrates three correlated tasks of mask prediction, edge prediction,
+        and distance map estimation
+      \item Zhao \emph{et al.} \cite{zhao2025} introduce their Hierarchical semantic Boundary Guided Network (HBGNet), 
+        shown below, that uses 
+        a Laplace convolutional operator in the architecture's boundary module
+        to enhance the model's awareness of parcel boundary, thus merging a traditional
+        APBD method with a convolutional deep learning network 
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.6\textwidth]{fig-11}
+            \caption*{HBGNet architecture (Figure 11)}
+        \end{figure}
+      \item Tang \emph{et al.} \cite{tang2025} employ SEANet for agricultural delineation and apply parcel-scale Random Forests algorithm for crop
+        type classification and spatial delineation of crop planting structures
+    \end{itemize}
+
+  \item \emph{Object detection-based APBD methods}
+\end{enumerate}
 
 \chapter*{Acknowledgment}
 \addcontentsline{toc}{chapter}{Acknowledgment}
